@@ -311,6 +311,7 @@ namespace BMICalc
             this.btnCalculate.TabIndex = 24;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = false;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // lblRequired
             // 
