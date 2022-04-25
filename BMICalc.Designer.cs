@@ -268,7 +268,7 @@ namespace BMICalc
             this.txtRecommendedBMI.Location = new System.Drawing.Point(153, 453);
             this.txtRecommendedBMI.Name = "txtRecommendedBMI";
             this.txtRecommendedBMI.ReadOnly = true;
-            this.txtRecommendedBMI.Size = new System.Drawing.Size(100, 20);
+            this.txtRecommendedBMI.Size = new System.Drawing.Size(206, 20);
             this.txtRecommendedBMI.TabIndex = 22;
             // 
             // grpbxMeasurements
@@ -307,7 +307,7 @@ namespace BMICalc
             // 
             this.btnCalculate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalculate.Location = new System.Drawing.Point(365, 435);
+            this.btnCalculate.Location = new System.Drawing.Point(403, 428);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(120, 68);
             this.btnCalculate.TabIndex = 24;

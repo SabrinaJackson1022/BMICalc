@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace BMICalc
 {
@@ -16,9 +17,8 @@ namespace BMICalc
         //Global variables
         static string name, email, address, phone;
         static double feet, feetConvertedToInches, inches, inchesMultiplied, cmToMeters, metersMultiplied, sumOfConvertedFeetAndInches;
-
-
         static double weight, weightSumKG, weightSumLB, englishBMI, metricBMI;
+        static double recommendedBMI, everyInchOverFiveFeet, additionalWeight;
 
         public BMICalc()
         {
@@ -40,9 +40,17 @@ namespace BMICalc
                 sumOfConvertedFeetAndInches = feetConvertedToInches + inches;
                 inchesMultiplied = sumOfConvertedFeetAndInches * sumOfConvertedFeetAndInches;
 
-                //calculate BMI and set to txtYourBMI
+                //calculate BMI, round it and set to txtYourBMI
                 englishBMI = weight / inchesMultiplied * 703;
+                englishBMI = Math.Round(englishBMI, 0);
                 txtYourBMI.Text = englishBMI.ToString();
+
+                //Recommended BMI = 105 lbs + 5 lbs per every inch over 5 ft
+                everyInchOverFiveFeet = sumOfConvertedFeetAndInches - 60;
+                additionalWeight = everyInchOverFiveFeet * 5;
+                //calculate recommended BMI
+                recommendedBMI = 105 + additionalWeight;
+                txtRecommendedBMI.Text = "Adults are recommended to have a BMI between 19 and 25. Your ideal weight for this is " + recommendedBMI;
 
             }
             else if (rdbtnMetricMeasurements.Checked == true)
@@ -59,13 +67,42 @@ namespace BMICalc
                 //multiple meters 
                 metersMultiplied = cmToMeters * cmToMeters;
 
-                //calculate metric BMI and show in txtYourBMI
+                //calculate metric BMI, round it, and show in txtYourBMI
                 metricBMI = weight / metersMultiplied;
                 metricBMI = Math.Round(metricBMI, 0);
                 txtYourBMI.Text = metricBMI.ToString();
 
 
             }
+
+
+            WriteReport();
+
+        }
+
+        private void WriteReport()
+        {
+            StreamWriter bmiReport = new StreamWriter("BMIreport.txt");
+
+            bmiReport.WriteLine(DateTime.Now);
+            bmiReport.WriteLine(DateTime.Today);
+            bmiReport.WriteLine("BMI Report for " + name);
+            bmiReport.WriteLine();
+            bmiReport.WriteLine("Email: " + email);
+            bmiReport.WriteLine();
+
+            if(rdbtnEnglishMeasurements.Checked ==true)
+            {
+                bmiReport.WriteLine("Your BMI index" + englishBMI);
+            }
+            else if(rdbtnMetricMeasurements.Checked == true)
+            {
+                bmiReport.WriteLine("Your BMI index" + metricBMI);
+            }
+
+            bmiReport.WriteLine();
+            bmiReport.WriteLine("About IWishICouldLoseWeight.com:");
+            bmiReport.WriteLine("    We are a small company attempting to help those who are frustrated with trying to lose weight.  Call us, we eat too and can help you.  ");
 
         }
     }
