@@ -191,11 +191,11 @@ namespace BMICalc
             // msktxtHeightFeet
             // 
             this.msktxtHeightFeet.Location = new System.Drawing.Point(62, 309);
-            this.msktxtHeightFeet.Mask = "00";
+            this.msktxtHeightFeet.Mask = "000";
             this.msktxtHeightFeet.Name = "msktxtHeightFeet";
             this.msktxtHeightFeet.Size = new System.Drawing.Size(43, 20);
             this.msktxtHeightFeet.TabIndex = 14;
-            this.msktxtHeightFeet.Text = "00";
+            this.msktxtHeightFeet.Text = "000";
             this.msktxtHeightFeet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblFeet
@@ -258,6 +258,7 @@ namespace BMICalc
             this.txtYourBMI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtYourBMI.Location = new System.Drawing.Point(153, 407);
             this.txtYourBMI.Name = "txtYourBMI";
+            this.txtYourBMI.ReadOnly = true;
             this.txtYourBMI.Size = new System.Drawing.Size(100, 20);
             this.txtYourBMI.TabIndex = 21;
             // 
@@ -266,6 +267,7 @@ namespace BMICalc
             this.txtRecommendedBMI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtRecommendedBMI.Location = new System.Drawing.Point(153, 453);
             this.txtRecommendedBMI.Name = "txtRecommendedBMI";
+            this.txtRecommendedBMI.ReadOnly = true;
             this.txtRecommendedBMI.Size = new System.Drawing.Size(100, 20);
             this.txtRecommendedBMI.TabIndex = 22;
             // 
