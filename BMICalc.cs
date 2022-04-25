@@ -48,6 +48,7 @@ namespace BMICalc
                 //Recommended BMI = 105 lbs + 5 lbs per every inch over 5 ft
                 everyInchOverFiveFeet = sumOfConvertedFeetAndInches - 60;
                 additionalWeight = everyInchOverFiveFeet * 5;
+
                 //calculate recommended BMI
                 recommendedBMI = 105 + additionalWeight;
                 txtRecommendedBMI.Text = "Adults are recommended to have a BMI between 19 and 25. Your ideal weight for this is " + recommendedBMI;
@@ -71,6 +72,12 @@ namespace BMICalc
                 metricBMI = weight / metersMultiplied;
                 metricBMI = Math.Round(metricBMI, 0);
                 txtYourBMI.Text = metricBMI.ToString();
+
+                //Recommended BMI = 50 kgs + 2 kgs per every inch over 5 ft
+                    //convert meters  to feet
+                    //subtract 60 inches (5ft) from total height
+                    //multiply left over height by 2 to get additional weight
+                    //add 50 kg with additional weight
 
 
             }
@@ -104,6 +111,7 @@ namespace BMICalc
             bmiReport.WriteLine("About IWishICouldLoseWeight.com:");
             bmiReport.WriteLine("    We are a small company attempting to help those who are frustrated with trying to lose weight.  Call us, we eat too and can help you.  ");
 
+            bmiReport.Close();
         }
     }
 }

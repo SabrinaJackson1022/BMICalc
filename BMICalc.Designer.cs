@@ -133,7 +133,7 @@ namespace BMICalc
             this.textBox1.Location = new System.Drawing.Point(259, 129);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(223, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBox1.TabIndex = 9;
             // 
             // textBox2
             // 
@@ -147,7 +147,7 @@ namespace BMICalc
             this.textBox3.Location = new System.Drawing.Point(89, 192);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(143, 20);
-            this.textBox3.TabIndex = 9;
+            this.textBox3.TabIndex = 11;
             // 
             // lblAskingToRound
             // 
@@ -184,7 +184,7 @@ namespace BMICalc
             this.msktxtWeight.Mask = "000";
             this.msktxtWeight.Name = "msktxtWeight";
             this.msktxtWeight.Size = new System.Drawing.Size(43, 20);
-            this.msktxtWeight.TabIndex = 13;
+            this.msktxtWeight.TabIndex = 20;
             this.msktxtWeight.Text = "000";
             this.msktxtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -266,9 +266,10 @@ namespace BMICalc
             // 
             this.txtRecommendedBMI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtRecommendedBMI.Location = new System.Drawing.Point(153, 453);
+            this.txtRecommendedBMI.Multiline = true;
             this.txtRecommendedBMI.Name = "txtRecommendedBMI";
             this.txtRecommendedBMI.ReadOnly = true;
-            this.txtRecommendedBMI.Size = new System.Drawing.Size(206, 20);
+            this.txtRecommendedBMI.Size = new System.Drawing.Size(206, 43);
             this.txtRecommendedBMI.TabIndex = 22;
             // 
             // grpbxMeasurements
