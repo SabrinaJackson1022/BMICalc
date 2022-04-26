@@ -17,7 +17,7 @@ namespace BMICalc
         //Global variables
         static string firstName, lastName, email, address, phone;
         static double feet, feetConvertedToInches, inches, inchesMultiplied, cmToMeters, metersMultiplied, sumOfConvertedFeetAndInches;
-        static double weight, weightSumKG, weightSumLB, englishBMI, metricBMI;
+        static double weight, weightSumKG, weightSumLB, englishBMI, metricBMI, feetToCentimeters, inToCentimeters, sumOfConvertedCentimeters, sumRounded;
         static double recommendedBMI, everyInchOverFiveFeet, additionalWeight, metersToFeet;
 
         private void btnContactInfo_Click(object sender, EventArgs e)
@@ -66,6 +66,52 @@ namespace BMICalc
                 recommendedBMI = 105 + additionalWeight;
                 txtRecommendedBMI.Text = "Adults are recommended to have a BMI between 19 and 25. Your ideal weight for this is " + recommendedBMI;
 
+                if(rdbtnMetricMeasurements.Checked == true)
+                {
+                    //hide inches textbox and label and change labels to metric
+                    msktxtInches.Enabled = false;
+                    lblInches.Enabled = false;
+                    lblFeet.Text = "cm.";
+                    lblWeight.Text = "kg.";
+
+                    //convert feet to centimeters, inches to centimeters, sum the 2 values, and write to txtFeet
+                    feetToCentimeters = feet * 30.48;
+                    inToCentimeters = inches * 2.54;
+                    sumOfConvertedCentimeters = feetToCentimeters + inToCentimeters;
+                    sumRounded = Math.Round(sumOfConvertedCentimeters, 0);
+                    msktxtHeightFeet.Text = sumRounded.ToString();
+
+                    //convert lbs to kg
+                    weightSumKG = weight / 2.2046;
+                    msktxtWeight.Text = weightSumKG.ToString();
+
+                    //convert cm to meters
+                    cmToMeters = sumRounded * 0.01;
+
+                    //multiply meters
+                    metersMultiplied = cmToMeters * cmToMeters;
+
+                    //calculate metric BMI, round it, and show in txtYourBMI
+                    metricBMI = weightSumKG / metersMultiplied;
+                    metricBMI = Math.Round(metricBMI, 0);
+                    txtYourBMI.Text = metricBMI.ToString();
+
+                    //Recommended BMI = 50 kgs + 2 kgs per every inch over 5 ft
+                    //convert meters  to feet
+                    metersToFeet = cmToMeters * 3;
+
+                    //subtract 60 inches (5ft) from total height
+                    everyInchOverFiveFeet = metersToFeet - 60;
+
+                    //multiply left over height by 2 to get additional weight
+                    additionalWeight = everyInchOverFiveFeet * 2;
+
+                    //add 50 kg with additional weight
+                    recommendedBMI = 50 + additionalWeight;
+                    txtRecommendedBMI.Text = "Adults are recommended to have a BMI between 19 and 25. Your ideal weight for this is " + recommendedBMI;
+
+                }
+
             }
             else if (rdbtnMetricMeasurements.Checked == true)
             {
@@ -78,7 +124,7 @@ namespace BMICalc
                 //convert cm to meters
                 cmToMeters = feet * 0.01;
 
-                //multiple meters 
+                //multipy meters 
                 metersMultiplied = cmToMeters * cmToMeters;
 
                 //calculate metric BMI, round it, and show in txtYourBMI
@@ -100,6 +146,17 @@ namespace BMICalc
                 recommendedBMI = 50 + additionalWeight;
                 txtRecommendedBMI.Text = "Adults are recommended to have a BMI between 19 and 25. Your ideal weight for this is " + recommendedBMI;
 
+                if(rdbtnEnglishMeasurements.Checked == true)
+                {
+                    //unhide inches textbox and label and change labels to english
+                    msktxtInches.Enabled = true;
+                    lblInches.Enabled = true;
+                    lblFeet.Text = "in.";
+                    lblWeight.Text = "lbs.";
+
+                    //convert textboxes to metric
+
+                }
             }
 
 
