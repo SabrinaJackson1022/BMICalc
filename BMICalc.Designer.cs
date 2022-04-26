@@ -37,9 +37,9 @@ namespace BMICalc
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnContactInfo = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblAskingToRound = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@ namespace BMICalc
             this.msktxtInches = new System.Windows.Forms.MaskedTextBox();
             this.lblInches = new System.Windows.Forms.Label();
             this.lblYourBMI = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRecommendedBMI = new System.Windows.Forms.Label();
             this.txtYourBMI = new System.Windows.Forms.TextBox();
             this.txtRecommendedBMI = new System.Windows.Forms.TextBox();
             this.grpbxMeasurements = new System.Windows.Forms.GroupBox();
@@ -127,27 +127,28 @@ namespace BMICalc
             this.btnContactInfo.TabIndex = 6;
             this.btnContactInfo.Text = "Add Contact Information";
             this.btnContactInfo.UseVisualStyleBackColor = false;
+            this.btnContactInfo.Click += new System.EventHandler(this.btnContactInfo_Click);
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(259, 129);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtEmail.Location = new System.Drawing.Point(259, 129);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(223, 20);
+            this.txtEmail.TabIndex = 9;
             // 
-            // textBox2
+            // txtFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 129);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtFirstName.Location = new System.Drawing.Point(89, 129);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(123, 20);
+            this.txtFirstName.TabIndex = 8;
             // 
-            // textBox3
+            // txtLastName
             // 
-            this.textBox3.Location = new System.Drawing.Point(89, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 20);
-            this.textBox3.TabIndex = 11;
+            this.txtLastName.Location = new System.Drawing.Point(89, 192);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(143, 20);
+            this.txtLastName.TabIndex = 11;
             // 
             // lblAskingToRound
             // 
@@ -244,14 +245,14 @@ namespace BMICalc
             this.lblYourBMI.TabIndex = 19;
             this.lblYourBMI.Text = "Your BMI Index:";
             // 
-            // label2
+            // lblRecommendedBMI
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 456);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Your Recommended BMI:";
+            this.lblRecommendedBMI.AutoSize = true;
+            this.lblRecommendedBMI.Location = new System.Drawing.Point(13, 456);
+            this.lblRecommendedBMI.Name = "lblRecommendedBMI";
+            this.lblRecommendedBMI.Size = new System.Drawing.Size(129, 13);
+            this.lblRecommendedBMI.TabIndex = 20;
+            this.lblRecommendedBMI.Text = "Your Recommended BMI:";
             // 
             // txtYourBMI
             // 
@@ -338,7 +339,7 @@ namespace BMICalc
             this.Controls.Add(this.grpbxMeasurements);
             this.Controls.Add(this.txtRecommendedBMI);
             this.Controls.Add(this.txtYourBMI);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblRecommendedBMI);
             this.Controls.Add(this.lblYourBMI);
             this.Controls.Add(this.lblInches);
             this.Controls.Add(this.msktxtInches);
@@ -349,9 +350,9 @@ namespace BMICalc
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblHeight);
             this.Controls.Add(this.lblAskingToRound);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnContactInfo);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblLastName);
@@ -364,6 +365,7 @@ namespace BMICalc
             this.Name = "BMICalc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.Load += new System.EventHandler(this.BMICalc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picbxLogo)).EndInit();
             this.grpbxMeasurements.ResumeLayout(false);
             this.grpbxMeasurements.PerformLayout();
@@ -381,9 +383,9 @@ namespace BMICalc
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnContactInfo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblAskingToRound;
         private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.Label lblWeight;
@@ -394,7 +396,7 @@ namespace BMICalc
         private System.Windows.Forms.MaskedTextBox msktxtInches;
         private System.Windows.Forms.Label lblInches;
         private System.Windows.Forms.Label lblYourBMI;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRecommendedBMI;
         private System.Windows.Forms.TextBox txtYourBMI;
         private System.Windows.Forms.TextBox txtRecommendedBMI;
         private System.Windows.Forms.GroupBox grpbxMeasurements;

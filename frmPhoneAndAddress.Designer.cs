@@ -79,6 +79,7 @@ namespace BMICalc
             this.btnAddPhoneAndAddress.TabIndex = 4;
             this.btnAddPhoneAndAddress.Text = "ADD";
             this.btnAddPhoneAndAddress.UseVisualStyleBackColor = false;
+            this.btnAddPhoneAndAddress.Click += new System.EventHandler(this.btnAddPhoneAndAddress_Click);
             // 
             // frmPhoneAndAddress
             // 
@@ -90,8 +91,11 @@ namespace BMICalc
             this.Controls.Add(this.msktxtPhone);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPhone);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPhoneAndAddress";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Extra Info";
             this.ResumeLayout(false);
             this.PerformLayout();
 
