@@ -59,7 +59,7 @@ namespace BMICalc
             this.msktxtPhone.Location = new System.Drawing.Point(63, 31);
             this.msktxtPhone.Mask = "(999) 000-0000";
             this.msktxtPhone.Name = "msktxtPhone";
-            this.msktxtPhone.Size = new System.Drawing.Size(100, 20);
+            this.msktxtPhone.Size = new System.Drawing.Size(109, 20);
             this.msktxtPhone.TabIndex = 2;
             // 
             // txtAddress
